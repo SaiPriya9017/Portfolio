@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sai Priya Kesoju - Portfolio</title>
+    <style>
+        :root {
+            --primary: #3a86ff;
+            --primary-dark: #0077b6;
+            --secondary: #8d99ae;
+            --light: #f8fafc;
+            --dark: #023047;
+            --accent: #ff006e;
+            --gradient-1: #3a86ff;
+            --gradient-2: #5e60ce;
+            --gradient-3: #7400b8;
+            --success: #06d6a0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2), var(--gradient-3));
+            color: white;
+            padding: 3rem 0;
+            box-shadow: 0 4px 15px -1px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 150%, rgba(255, 255, 255, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            animation: floatIn 1s ease-out forwards, pulse 3s infinite ease-in-out;
+            background: linear-gradient(45deg, var(--gradient-1), var(--gradient-3));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        @keyframes floatIn {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            }
+            50% {
+                box-shadow: 0 15px 30px rgba(58, 134, 255, 0.4);
+            }
+            100% {
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            }
+        }
+        
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+                
+        .profile-img-placeholder {
+            font-size: 4rem;
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            animation: fadeInUp 1s ease-out 0.3s forwards;
+            opacity: 0;
+            transform: translateY(20px);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .tagline {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            animation: fadeInUp 1s ease-out 0.6s forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            animation: fadeInUp 1s ease-out 0.9s forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            background-color: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent); 
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .social-links a i {
+            transition: transform 0.3s ease;
+        }
+        
+        .social-links a:hover i {
+            transform: scale(1.2);
+        }
+        
+        .nav {
+            background-color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+        
+        .nav.scrolled {
+            padding: 0.2rem 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+            gap: 1.5rem;
+            padding: 1rem 0;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(to right, var(--gradient-1), var(--gradient-3));
+            transition: width 0.3s ease;
+            border-radius: 3px;
+        }
+        
+        .nav-links a:hover::after, .nav-links a:focus::after, .nav-links a.active::after {
+            width: 70%;
+        }
+        
+        .nav-links a:hover, .nav-links a:focus, .nav-links a.active {
+            color: var(--primary);
+        }
+        
+        section {
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        section:nth-child(even) {
+            background-color: #f1f5f9;
+        }
+        
+        section::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--primary-dark) 0%, transparent 70%);
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        section:nth-child(odd)::before {
+            top: -100px;
+            right: -100px;
+        }
+        
+        section:nth-child(even)::before {
+            bottom: -100px;
+            left: -100px;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3.5rem;
+            color: var(--primary);
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+        
+        .section-title.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--gradient-1), var(--gradient-3));
+            border-radius: 2px;
+        }
+        
+        .summary {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--primary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            padding: 0 50px 50px;
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.6s ease;
+        }
+        
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            transform: translateX(30px);
+        }
+        
+        .timeline-item:nth-child(even).visible {
+            transform: translateX(0);
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            top: 15px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--gradient-3));
+            z-index: 1;
+            box-shadow: 0 0 0 5px rgba(255, 0, 110, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-item:hover::after {
+            transform: scale(1.2);
+            box-shadow: 0 0 0 8px rgba(255, 0, 110, 0.2);
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            padding: 1.5rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            border-width: 10px;
+            border-style: solid;
+            top: 15px;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            right: -20px;
+            border-color: transparent transparent transparent white;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::after {
+            left: -20px;
+            border-color: transparent white transparent transparent;
+        }
+        
+        .timeline-date {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .timeline-title {
+            margin: 10px 0;
+            color: var(--dark);
+        }
+        
+        .timeline-org {
+            color: var(--secondary);
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .project-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(58, 134, 255, 0.15);
+        }
+        
+        .project-card:nth-child(1) { transition-delay: 0.1s; }
+        .project-card:nth-child(2) { transition-delay: 0.2s; }
+        .project-card:nth-child(3) { transition-delay: 0.3s; }
+        
+        .project-img {
+            height: 180px;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .project-title {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .project-tech {
+            margin-bottom: 1rem;
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        
+        .skills-category {
+            flex: 1;
+            min-width: 250px;
+            max-width: 400px;
+        }
+        
+        .skills-category h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            justify-content: center;
+        }
+        
+        .skill-tag {
+            background-color: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            border-radius: 50px;
+            padding: 0.6rem 1.2rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .skill-tag.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .skill-tag:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 15px rgba(58, 134, 255, 0.2);
+        }
+        
+        .skills-list .skill-tag:nth-child(3n+1) {
+            transition-delay: 0.1s;
+        }
+        
+        .skills-list .skill-tag:nth-child(3n+2) {
+            transition-delay: 0.2s;
+        }
+        
+        .skills-list .skill-tag:nth-child(3n+3) {
+            transition-delay: 0.3s;
+        }
+        
+        .certifications {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cert-list {
+            list-style: none;
+        }
+        
+        .cert-item {
+            background-color: white;
+            border-left: 4px solid var(--accent);
+            padding: 1rem 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .cert-item:hover {
+            transform: translateX(10px);
+        }
+        
+        .training-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .training-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .training-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .training-period {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .activities-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .activity-item {
+            background-color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 4rem 0;
+        }
+        
+        .contact h2 {
+            color: white;
+        }
+        
+        .contact h2::after {
+            background-color: var(--primary);
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .contact-item {
+            flex: 1;
+            min-width: 200px;
+            max-width: 300px;
+            padding: 1.5rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .contact-item i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-item a:hover {
+            color: var(--primary);
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            padding: 1.5rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 20px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+            
+            .timeline-item:nth-child(even)::after {
+                left: 21px;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-content::after,
+            .timeline-item:nth-child(even) .timeline-content::after {
+                display: none;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="profile-img">
+                <img src="/DSC_0309.JPG" alt="Sai Priya Kesoju" />
+            </div>
+            <h1>Sai Priya Kesoju</h1>
+            <p class="tagline">Full Stack Developer | AI/ML Enthusiast | Computer Science and Business Systems Student</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/sai-priya-kesoju/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/saipriyakesoju" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://www.codechef.com/users/saipriyakesoju" target="_blank"><i class="fas fa-code"></i> CodeChef</a>
+                <a href="mailto:saipriyakesoju@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+                <a href="tel:+917093749017"><i class="fas fa-phone"></i> +91 7093749017</a>
+            </div>
+        </div>
+    </header>
+    
+    <nav class="nav">
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#certifications">Achievements</a></li>
+                <li><a href="#training">Training</a></li>
+                <li><a href="#activities">Activities</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="summary">
+                <p>Engineered innovative software solutions to address complex business challenges, leveraging advanced analytical skills to streamline operations and boost revenue by optimizing system efficiency. As a Computer Science and Business Systems student, I combine technical expertise with business acumen to create impactful solutions. My experience spans full-stack development, AI/ML applications, and innovative project implementation.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Internships</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">June 2025-July 2025 (Upcoming)</div>
+                        <h3 class="timeline-title">Strategy and Consulting Intern</h3>
+                        <div class="timeline-org">Accenture, Hyderabad</div>
+                        <ul>
+                            <li>Selected for a prestigious consulting internship focusing on technology strategy and business transformation.</li>
+                            <li>Will collaborate with cross-functional teams to develop innovative solutions for client challenges.</li>
+                            <li>Expected to contribute to digital transformation initiatives using analytics and emerging technologies.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">April 2024 - June 2024</div>
+                        <h3 class="timeline-title">Quality Research Intern</h3>
+                        <div class="timeline-org">Xairo Technologies, Hyderabad</div>
+                        <ul>
+                            <li>Contributed to a startup project focused on chest pain classification using advanced methodologies.</li>
+                            <li>Conducted extensive user interviews to gather insights and improve user experience.</li>
+                            <li>Facilitated design thinking workshops to ideate and implement innovative solutions.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2023 - 2026</div>
+                        <h3 class="timeline-title">Bachelor of Technology in Computer Science and Business Systems</h3>
+                        <div class="timeline-org">Vallurupalli Nageswara Rao Vignana Jyothi Institute of Engineering and Technology</div>
+                        <p><strong>CGPA:</strong> 7.75</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2021 - 2023</div>
+                        <h3 class="timeline-title">Diploma in Computer Engineering</h3>
+                        <div class="timeline-org">Vmr Pradeep Kumar Polytechnic College</div>
+                        <p><strong>CGPA:</strong> 8.21</p>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2020 - 2021</div>
+                        <h3 class="timeline-title">Schooling</h3>
+                        <div class="timeline-org">St.Thomas High School</div>
+                        <p><strong>CGPA:</strong> 10</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">BLOOD TRANSFER HEALTH MANAGEMENT</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Blood Transfer Health Management</h3>
+                        <p class="project-tech">HTML, CSS, React Js, MongoDB, Node Js, Express Js</p>
+                        <ul>
+                            <li>Designed and developed a full-stack MERN application to streamline donor-patient registration</li>
+                            <li>Improved hospital efficiency by 25% and reduced donor response time by 40%, cutting blood transfusion waiting time by 35%.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">MULTI-NEWS SUMMARIZER</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Multi-News Summarizer Using Gemini</h3>
+                        <p class="project-tech">Python, Streamlit, Gemini 1.5 Pro, BeautifulSoup</p>
+                        <ul>
+                            <li>Built a web app that extracts and summarizes content from multiple news URLs using Gemini's generative model</li>
+                            <li>Enabled real-time, multi-source news comparison with Streamlit UI for interactive summaries.</li>
+                            <li>Parsed HTML with Beautiful Soup to retrieve and process article content (~3000 characters/article)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">CAFETERIA ORDER MANAGEMENT</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Cafeteria Order Management System</h3>
+                        <p class="project-tech">Java, DBMS, Frontend</p>
+                        <ul>
+                            <li>Developed a Java-based application with a DBMS backend to manage cafeteria orders efficiently.</li>
+                            <li>Implemented a user-friendly frontend for seamless order placement, tracking, and payment processing.</li>
+                            <li>Optimized order processing, reducing wait times and improving overall service efficiency.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-container">
+                <div class="skills-category">
+                    <h3>Technical Skills</h3>
+                    <div class="skills-list">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Angular</span>
+                        <span class="skill-tag">MERN Stack</span>
+                        <span class="skill-tag">Data Structures</span>
+                        <span class="skill-tag">Algorithms</span>
+                        <span class="skill-tag">Linux</span>
+                        <span class="skill-tag">SDLC</span>
+                        <span class="skill-tag">Langchain</span>
+                        <span class="skill-tag">OpenAI</span>
+                        <span class="skill-tag">FAISS</span>
+                        <span class="skill-tag">Streamlit</span>
+                        <span class="skill-tag">AI</span>
+                    </div>
+                </div>
+                <div class="skills-category">
+                    <h3>Soft Skills</h3>
+                    <div class="skills-list">
+                        <span class="skill-tag">Communication</span>
+                        <span class="skill-tag">Time Management</span>
+                        <span class="skill-tag">Team Player</span>
+                        <span class="skill-tag">Risk Management</span>
+                        <span class="skill-tag">Problem Solving</span>
+                        <span class="skill-tag">Analytical Skills</span>
+                        <span class="skill-tag">Software Design</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="certifications">
+        <div class="container">
+            <h2 class="section-title">Certifications & Achievements</h2>
+            <div class="certifications">
+                <ul class="cert-list">
+                    <li class="cert-item">Top 3 in Salesforce Reboot the Earth Hackathon (AI in Agriculture)</li>
+                    <li class="cert-item">Winner (2nd Prize) in Techfest in Katalyst (Quantum Computing Presentation)</li>
+                    <li class="cert-item">Badge on Code Chef 50 day streak, Participated in katathon, one in TOP 15 teams</li>
+                    <li class="cert-item">Complete Data Structures and Algorithms Course in Python - Udemy</li>
+                    <li class="cert-item">Smart Coder - Smart Interviews, Generative AI-SAWIT.AI learnathon</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <section id="training">
+        <div class="container">
+            <h2 class="section-title">Training</h2>
+            <div class="training-grid">
+                <div class="training-card">
+                    <h3>Katalyst Mentee</h3>
+                    <div class="training-period">November 2023 - Present</div>
+                    <p>Mentored by professionals from Microsoft and Salesforce</p>
+                </div>
+                <div class="training-card">
+                    <h3>Apna College</h3>
+                    <div class="training-period">January 2025 - Present</div>
+                    <p>Full Stack Development and DSA Training</p>
+                </div>
+                <div class="training-card">
+                    <h3>VNRVJIET</h3>
+                    <div class="training-period">April 2025 - June 2025</div>
+                    <p>AI Immersion Program</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="activities">
+        <div class="container">
+            <h2 class="section-title">Extra-Curricular Activities</h2>
+            <div class="activities-list">
+                <div class="activity-item">
+                    <p>Member of GDG Hyderabad, Startup Bootstrap VNRVJIET, Event Organizer in Fit Pulse VNRVJIET</p>
+                </div>
+                <div class="activity-item">
+                    <p>Member in JPMC Toastmasters, Acted as TMOD (Toastmaster of the day) at JPMC</p>
+                </div>
+                <div class="activity-item">
+                    <p>Visited JPMorgan Chase & Co (JPMC), Jones Lang LaSalle Incorporated (JLL), Microsoft</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <a href="mailto:saipriyakesoju@gmail.com">saipriyakesoju@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <h3>Phone</h3>
+                    <a href="tel:+917093749017">+91 7093749017</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <h3>LinkedIn</h3>
+                    <a href="https://www.linkedin.com/in/sai-priya-kesoju/" target="_blank">linkedin.com/in/sai-priya-kesoju</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <h3>GitHub</h3>
+                    <a href="https://github.com/saipriyakesoju" target="_blank">github.com/saipriyakesoju</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Sai Priya Kesoju. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Intersection Observer for animations
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.section-title, .timeline-item, .project-card, .skill-tag, .cert-item, .training-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.2 });
+            
+            elements.forEach(element => {
+                observer.observe(element);
+            });
+        };
+        
+        // Navigation scroll effects
+        const navScrollEffect = () => {
+            const nav = document.querySelector('.nav');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+            });
+        };
+        
+        // Active navigation highlighting
+        const activeNavHighlight = () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            window.addEventListener('scroll', () => {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (scrollY >= (sectionTop - 100)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        };
+        
+        // Initialize all animations and effects
+        document.addEventListener('DOMContentLoaded', () => {
+            animateOnScroll();
+            navScrollEffect();
+            activeNavHighlight();
+            
+            // Add classes to initiate animations
+            setTimeout(() => {
+                document.querySelectorAll('.section-title').forEach(title => {
+                    title.classList.add('visible');
+                });
+            }, 100);
+        });
+    </script>
+</body>
+</html>
